@@ -1,0 +1,29 @@
+﻿@model HealthyFoodApp.ViewModels.HomeIndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head></head>
+<body>
+<div class="p-5 text-center bg-light">
+    <h4>Click on a specific food item in the list to find out more details!</h4>
+    <div style="max-width: 700px; margin: auto">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                   aria-describedby="search-addon" />
+            <button type="button" class="btn btn-outline-primary">Go!</button>
+        </div>
+    </div>
+    <h4><a asp-action="IngredientDetails">View details about the ingredients in food</a></h4>
+    <div class="">
+        @foreach (var food in Model.FoodList)
+        {
+            @await Html.PartialAsync("_FoodSummary", food)
+        }
+        <a asp-action="Create" style="display: none">Add food</a>
+    </div>
+</div>
+</body>
+</html>

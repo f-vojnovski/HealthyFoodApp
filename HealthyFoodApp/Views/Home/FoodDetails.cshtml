@@ -1,0 +1,106 @@
+﻿@using HealthyFoodApp.Models
+@model HealthyFoodApp.Models.Food
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="container">
+    <h1>@Model.Name</h1>
+    <h5>@Model.Description</h5>
+    <div>
+        @{
+            if (Model.AdditionalInformation != null)
+                foreach (var foodInformation in Model.AdditionalInformation)
+                {
+                    {
+                        string informationClass = "light-alert";
+                        if (foodInformation.InformationType == FoodAdditionalInformationType.Positive)
+                        {
+                            informationClass = "alert-success";
+                        }
+                        else if (foodInformation.InformationType == FoodAdditionalInformationType.Negative)
+                        {
+                            informationClass = "alert-danger";
+                        }
+                        <div class="@informationClass" style="margin-bottom: 3px">@foodInformation.Information</div>
+                    }
+                }
+        }
+    </div>
+    <h6>These values represent a 100g serving</h6>
+    <div class="row">
+        <div class="col-sm">
+            <h3 class="text-primary">Basic information</h3>
+            <h4><strong>Calories:</strong> @Model.Calories g</h4>
+            <h4><strong>Water:</strong> @Model.Water g</h4>
+            <h4><strong>Proteins:</strong> @Model.Protein g</h4>
+            <h4><strong>Carbs:</strong> @Model.Carbohydrate g</h4>
+            <h4><strong>Sugar:</strong> @Model.Sugar g</h4>
+            <h4><strong>Fiber:</strong> @Model.Fiber g</h4>
+            <h4><strong>Fat:</strong> @Model.Fat g</h4>
+        </div>
+        <div class="col-sm">
+            <h3 class="text-primary">Vitamins</h3>
+            <h6><strong>Choline: </strong>@Model.Choline mg</h6>
+            <h6><strong>Folate, DFE: </strong>@Model.FolateDFE mcg</h6>
+            <h6><strong>Folate, food: </strong>@Model.FolateFood mcg</h6>
+            <h6><strong>Folic Acid: </strong>@Model.FolicAcid mcg</h6>
+            <h6><strong>Niacin: </strong>@Model.Niacin mg</h6>
+            <h6><strong>Riboflavin: </strong>@Model.Riboflavin mg</h6>
+            <h6><strong>Thiamin: </strong>@Model.Thiamin mg</h6>
+            <h6><strong>Vitamin A, RAE: </strong>@Model.VitaminARae mcg</h6>
+            <h6><strong>Carotene, alpha: </strong>@Model.CaroteneAlpha mcg</h6>
+            <h6><strong>Carotene, beta: </strong>@Model.CaroteneBeta mcg</h6>
+            <h6><strong>Cryptoxanthin, beta: </strong>@Model.Cryptoxanthin mcg</h6>
+            <h6><strong>Lutein + zeaxanthin: </strong>@Model.LuteinZeaxanthin mcg</h6>
+            <h6><strong>Lycopene: </strong>@Model.Lycopene mcg</h6>
+            <h6><strong>Retinol: </strong>@Model.Retinol mcg</h6>
+            <h6><strong>Vitamin B12: </strong>@Model.VitaminB12 mcg</h6>
+            <h6><strong>Vitamin B12, Added: </strong>@Model.VitaminB12Added mcg</h6>
+            <h6><strong>Vitamin B6: </strong>@Model.VitaminB6 mg</h6>
+            <h6><strong>Vitamin C: </strong>@Model.VitaminC mg</h6>
+            <h6><strong>Vitamin D: </strong>@Model.VitaminD mcg</h6>
+            <h6><strong>Vitamin E (alpha-tocopherol): </strong>@Model.VitaminE mg</h6>
+            <h6><strong>Vitamin E (added): </strong>@Model.VitaminEAdded mg</h6>
+            <h6><strong>Tocopherol, alpha: </strong>@Model.TocopherolAlpha mg</h6>
+            <h6><strong>Vitamin K: </strong>@Model.VitaminK mcg</h6>
+        </div>
+        <div class="col-sm">
+            <h3 class="text-primary">Minerals</h3>
+            <h6><strong>Calcium: </strong>@Model.Calcium mg</h6>
+            <h6><strong>Copper: </strong>@Model.Copper mg</h6>
+            <h6><strong>Iron: </strong>@Model.Iron mg</h6>
+            <h6><strong>Magnesium: </strong>@Model.Magnesium mg</h6>
+            <h6><strong>Potassium: </strong>@Model.Potassium mg</h6>
+            <h6><strong>Selenium: </strong>@Model.Selenium mcg</h6>
+            <h6><strong>Sodium: </strong>@Model.Sodium mg</h6>
+            <h6><strong>Zinc: </strong>@Model.Zinc mg</h6>
+        </div>
+        <div class="col-sm">
+            <h3 class="text-primary">Fats</h3>
+            <h6><strong>Saturated fatty acids: </strong>@Model.SaturatedFattyAcids g</h6>
+            <h6><strong>Butanoic acid: </strong>@Model.ButanoicAcid g</h6>
+            <h6><strong>Decanoic acid: </strong>@Model.DecanoicAcid g</h6>
+            <h6><strong>Dodecanoic acid: </strong>@Model.DodecanoicAcid g</h6>
+            <h6><strong>Hexadecanoic acid: </strong>@Model.HexadecanoicAcid g</h6>
+            <h6><strong>Hexanoic acid: </strong>@Model.HexanoicAcid g</h6>
+            <h6><strong>Octadecanoic acid: </strong>@Model.OctadecanoicAcid g</h6>
+            <h6><strong>Octanoic acid: </strong>@Model.OctanoicAcid g</h6>
+            <h6><strong>Tetradecanoic acid: </strong>@Model.TetradecanoicAcid g</h6>
+            <h6><strong>Monounsaturated fatty acids: </strong>@Model.MonounsaturatedFattyAcids g</h6>
+            <h6><strong>Docosenoic acid: </strong>@Model.DocosenoicAcid g</h6>
+            <h6><strong>Eicosenoic acid: </strong>@Model.EicosenoicAcid g</h6>
+            <h6><strong>Hexadecenoic acid: </strong>@Model.HexadecenoicAcid g</h6>
+            <h6><strong>Octadecenoic acid: </strong>@Model.OctadecenoicAcid g</h6>
+            <h6><strong>Polyunsaturated fatty acids: </strong>@Model.PolyunsaturatedFattyAcids g</h6>
+            <h6><strong>Docosahexaenoic n-3 acid (DHA): </strong>@Model.DocosahexaenoicN3Acid g</h6>
+            <h6><strong>Docosapentaenoic n-3 acid (DPA): </strong>@Model.DocosapentaenoicN3acid g</h6>
+            <h6><strong>Eicosapentaenoic n-3 acid (EPA): </strong>@Model.EicosapentaenoicN3Acid g</h6>
+            <h6><strong>Eicosatetraenoic acid: </strong>@Model.EicosatetraenoicAcid g</h6>
+            <h6><strong>Octadecadienoic acid: </strong>@Model.OctadecadienoicAcid g</h6>
+            <h6><strong>Octadecatetraenoic acid: </strong>@Model.OctadecatetraenoicAcid g</h6>
+            <h6><strong>Octadecatrienoic acid: </strong>@Model.OctadecatrienoicAcid g</h6>
+        </div>
+    </div>
+</div>
